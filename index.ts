@@ -1,4 +1,4 @@
-//require('@babel/register')
+//require('@babel/register') nopls
 
 const config = require('./webpack.config')
 const express = require('express')
