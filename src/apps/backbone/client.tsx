@@ -8,6 +8,8 @@ ReactDOM.render(
   <App {...bootstrapData} />, document.getElementById('react-root')
 )
 
+/*
 if ((module as any).hot) {
   (module as any).hot.accept()
 }
+*/
