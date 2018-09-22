@@ -8,7 +8,7 @@ const Layout = styled.div`
   padding: 50px;
 `
 
-export default function App (props, context) {
+export default function StyledApp (props, context) {
   const { title } = props
 
   return (

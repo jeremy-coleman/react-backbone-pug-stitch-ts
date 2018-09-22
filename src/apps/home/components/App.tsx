@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export default class App extends React.Component<any, any> {
+export default class HomeApp extends React.Component<any, any> {
 
   componentDidMount () {
     console.log('Component mounted on client-side')
