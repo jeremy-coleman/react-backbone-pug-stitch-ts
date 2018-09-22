@@ -1,12 +1,12 @@
 const express = require('express')
-const logger = require('artsy-morgan')
+//const logger = require('morgan')
 const path = require('path')
 const app = express()
 
 
 app.set('views', 'templates')
 app.use(express.static('public'))
-app.use(logger)
+//app.use(logger)
 
 
 // Apps

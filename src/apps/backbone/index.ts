@@ -1,6 +1,6 @@
 import App from './components/App'
 var express = require('express')
-import { renderLayout } from '@artsy/stitch'
+import { renderLayout } from '../../../@coglite/stitch'
 
 const app = module.exports = express()
 
