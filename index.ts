@@ -1,5 +1,3 @@
-//const express = require('express')
-//const logger = require('morgan')
 const path = require('path')
 const app = require('fastify')()
 
@@ -7,11 +5,25 @@ import { renderLayout } from './src/@coglite/stitch'
 import BackboneApp from './src/apps/backbone/components/App';
 import StyledApp from './src/apps/home/components/App';
 import HomeApp from './src/apps/styled-components/components/App';
-//app.set('views', 'templates')
-//app.use(express.static('public'))
-//app.use(logger)
+
+
+const config = require('./webpack.config')
+const webpack = require('webpack')
+const compiler = webpack(config)
+
+
 
 app.register(require('fastify-static'), { root: path.join(__dirname, '/public') })
+app.use(require('webpack-hot-middleware')(compiler))
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath,
+  serverSideRender: true,
+  stats: {
+    colors: true
+  }
+}))
+
 // Apps
 app.get('/backbone', async (req, res, next) => {
   try {

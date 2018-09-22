@@ -4,18 +4,18 @@ var path = require('path')
 
 module.exports = {
   target: 'web',
-  mode: 'production',
+  mode: 'development',
   devtool: 'eval',
   entry: {
-    home: ['./src/apps/home/client.tsx'],
-    backbone: ['./src/apps/backbone/client.tsx'],
-    styled_components: ['./src/apps/styled-components/client.tsx']
+    home: ['webpack-hot-middleware/client', './src/apps/home/client.tsx'],
+    backbone: ['webpack-hot-middleware/client', './src/apps/backbone/client.tsx'],
+    styled_components: ['webpack-hot-middleware/client', './src/apps/styled-components/client.tsx']
   },
 
   output: {
     filename: '[name].js',
-    publicPath: '/',
-    path: path.resolve(__dirname, 'public/static')
+    publicPath: '/static',
+    //path: path.resolve(__dirname, 'public/static')
   },
   module: {
     rules: [
@@ -29,8 +29,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify('production')})
-   // new webpack.HotModuleReplacementPlugin()
+    new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify('development')}),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx']

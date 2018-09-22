@@ -1,4 +1,4 @@
-import * as cons from 'consolidate'
+import * as ConsolidateCompiler from 'consolidate'
 import * as path from 'path'
 import { isArray, isFunction } from 'lodash'
 
@@ -24,7 +24,7 @@ export default async function renderTemplate(template, options: any = {}) {
   async function compile(file) {
     const ext = path.extname(file).replace('.', '')
 
-    const compileFn = config.engines[ext] || cons[ext]
+    const compileFn = config.engines[ext] || ConsolidateCompiler[ext]
 
     if (!isFunction(compileFn)) {
       throw new Error(

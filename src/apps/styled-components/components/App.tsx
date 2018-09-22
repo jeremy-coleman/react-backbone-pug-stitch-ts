@@ -17,7 +17,7 @@ export default function StyledApp (props, context) {
         {title}
       </h3>
       <p>
-        Hello from Styled Components!
+        Hello from Styled Componentsz!
       </p>
     </Layout>
   )

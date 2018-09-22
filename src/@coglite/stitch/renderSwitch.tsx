@@ -6,7 +6,7 @@ import { isComponent, isTemplate } from './utils'
 
 export default async function renderSwitch(block, options) {
   let html = ''
-  let css = ''
+  let css: any = ''
 
   if (!block) {
     return { html, css }

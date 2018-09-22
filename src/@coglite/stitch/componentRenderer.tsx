@@ -4,9 +4,24 @@ import { ServerStyleSheet } from 'styled-components'
 import { renderToString } from 'react-dom/server'
 import { uniqueId } from 'lodash'
 
+
+
+interface IStitchConfig {
+  modules: any,
+  moduleName: any,
+  props: any,
+  modes: 'client' | 'server',
+  serialize: (component: any) => void,
+  mountId: any,
+  sheet: any,
+  html: any,
+  css: any,
+  markup: any
+}
+
 const modes = {
-  CLIENT: 'client',
-  SERVER: 'server'
+  CLIENT: "client",
+  SERVER: "server"
 }
 
 export function componentRenderer(config) {
